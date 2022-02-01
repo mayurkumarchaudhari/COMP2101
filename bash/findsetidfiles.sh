@@ -27,17 +27,6 @@ echo ""
 echo "Mayur Chaudhari"
 echo "200454907"
 echo "************************"
-echo "find files without permission 777"
-find / -type f ! -perm 777 | head -20
-echo ""
-
-
-echo "without 0777 permision top 12 files"
-echo "=======head========"
-find / -type f ! -perm 0777 -print | head -12
-echo ""
-
-echo "without 0777 permision last 12 files"
-echo "=======tail========"
-find . -type f ! -perm 0777 -print | tail -12
+echo "find 12 large files"
+find . -type f -printf "%b %s %p\n" | sort -h |tail -12 |awk '{print $3,$4,$5,$6}'
 echo ""
