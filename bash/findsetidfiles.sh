@@ -17,16 +17,15 @@
 
 echo "Setuid files:"
 echo "============="
-find / -type f -executable -perm -4000 -ls 2>/dev/null | sort -k 5 | head -12
+find / -type f -executable -perm -4000 -ls 2>/dev/null | sort -k 5
 echo ""
 
 # for the task, add
 # commands to display a title
 # commands to make a list of the 12 biggest files
 # sort/format whatever to display the list properly
-echo "Mayur Chaudhari"
-echo "200454907"
-echo "************************"
-echo "find 12 large files"
-find . -type f -printf "%b %s %p\n" | sort -h |tail -12 |awk '{print $3,$4,$5,$6}'
-echo ""
+
+echo "12 large files on the system"
+echo "=============================="
+find . -type f -printf "%b %s %p\n" | sort -h |tail -12 |awk '{print $3,$4,$6,$7}'
+echo""
