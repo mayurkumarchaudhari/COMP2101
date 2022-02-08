@@ -28,5 +28,5 @@ echo "Mayur Chaudhari"
 echo "200454907"
 echo "************************"
 echo "find 12 large files"
-find . -type f -printf "%b %s %p\n" | sort -h |head -12 |awk '{print $3,$4,$5,$6}'
+find . -type f -printf "%b %s %p\n" | sort -h |tail -12 |awk '{print $3,$4,$5,$6}'
 echo ""
