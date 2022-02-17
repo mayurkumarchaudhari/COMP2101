@@ -48,7 +48,7 @@ my_hostname="$(hostname) / $(hostname -I)"
 [ "$verbose" = "yes" ] && echo "Identifying default route"
 # the default route can be found in the route table normally
 # the router name is obtained with getent
-default_router_address=$(ip r s default| awk '{print $3}')
+default_router_address=$(ip r s default| cut -d ' ' -f 3)
 default_router_name=$(getent hosts $default_router_address|awk '{print $2}')
 
 [ "$verbose" = "yes" ] && echo "Checking for external IP address and hostname"
@@ -83,7 +83,8 @@ EOF
 #####
 
 # define the interface being summarized
-interface="ens33"
+[ "$interface" = "" ] && interface="ens33"
+
 [ "$verbose" = "yes" ] && echo "Reporting on interface(s): $interface"
 
 [ "$verbose" = "yes" ] && echo "Getting IPV4 address and name for interface $interface"
