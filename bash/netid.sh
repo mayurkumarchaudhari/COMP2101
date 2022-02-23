@@ -41,9 +41,10 @@ while [ $# -gt 0 ]; do
   esac
   shift
 done
+
 [ "$verbose" = "yes" ] && echo "Gathering host information"
 # we use the hostname command to get our system name and main ip address
-my_hostname="$(hostname) / $(hostname -I)"
+my_hostname="$(hostname)"
 
 [ "$verbose" = "yes" ] && echo "Identifying default route"
 # the default route can be found in the route table normally
