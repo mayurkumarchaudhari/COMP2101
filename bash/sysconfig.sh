@@ -15,22 +15,20 @@
 # Usage:
 #   error-message ["some text to print to stderr"]
 function error-message {
-       Message="$1"
-       echo "$Message" >&2
+       echo "error message: $1" >&2
 }
 
 # This function will send a message to stderr and exit with a failure status
 # Usage:
 #   error-exit ["some text to print to stderr" [exit-status]]
 function error-exit {
-  Message="$1"
-   exitcode="$2"
-   echo "$Message" >&2
-   exit "$2"
+  error_value="$1"
+   echo "send error message to file error_value" && exit1
 }
 #This function displays help information if the user asks for it on the command line or gives us a bad command line
 function displayhelp {
         echo "Usage: `basename $0` [-h] -- program to display system information according to selected options.
+
         where :
          -h|help: display help text
          --host: generate report about the host
